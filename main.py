@@ -20,7 +20,6 @@ def carregar_medicamentos(arquivo):
                 medicamentos.append(medicamento)
 
     except FileNotFoundError:
-        # Se o arquivo ainda não existir, começamos com uma lista vazia.
         medicamentos = []
 
     return medicamentos
@@ -51,8 +50,16 @@ def cadastrar_medicamento(medicamentos):
 
         print("O nome do medicamento não pode ficar vazio.")
 
-    categoria = input("Categoria: ").strip()
+    # Verifica se a categoria foi preenchida.
+    while True:
+        categoria = input("Categoria: ").strip()
 
+        if categoria:
+            break
+
+        print("A categoria do medicamento não pode ficar vazia.")
+
+    # Verifica se a quantidade é válida.
     while True:
         try:
             quantidade = int(input("Quantidade em estoque: "))
