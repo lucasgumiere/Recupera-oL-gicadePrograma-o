@@ -99,7 +99,7 @@ def buscar_medicamento(medicamentos, nome):
     encontrados = []
 
     for medicamento in medicamentos:
-        if medicamento["nome"].lower() == nome.lower():
+        if nome.lower() in medicamento["nome"].lower():
             encontrados.append(medicamento)
 
     return encontrados
